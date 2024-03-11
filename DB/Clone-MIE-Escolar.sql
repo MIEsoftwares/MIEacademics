@@ -557,3 +557,23 @@ UNLOCK TABLES;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
 -- Dump completed on 2024-03-10 21:16:42
+
+RENAME TABLE alunos TO alunos;
+RENAME TABLE autorizacoesconsentimentosalunos TO autorizacoes_consentimentos_alunos;
+RENAME TABLE avaliacoesdesempenhoprofessores TO avaliacoes_desempenho_professores;
+RENAME TABLE certificacoescredenciaisprofessores TO certificacoes_credenciais_professores;
+RENAME TABLE contatoemergenciaalunos TO contato_emergencia_alunos;
+RENAME TABLE contatosemergenciaprofessores TO contatos_emergencia_professores;
+RENAME TABLE disciplinaslecionadasprofessores TO disciplinas_lecionadas_professores;
+RENAME TABLE documentacaolegalprofessores TO documentacao_legal_professores;
+RENAME TABLE experienciaprofissionalprofessores TO experiencia_profissional_professores;
+RENAME TABLE formacaoacademicaprofessores TO formacao_academica_professores;
+RENAME TABLE historicoescolaralunos TO historico_escolar_alunos;
+RENAME TABLE horarioscalendarioprofessores TO horarios_calendario_professores;
+RENAME TABLE informacoesacademicasalunos TO informacoes_academicas_alunos;
+RENAME TABLE informacoescontratuaisprofessores TO informacoes_contratuais_professores;
+RENAME TABLE informacoesmedicasalunos TO informacoes_medicas_alunos;
+RENAME TABLE matricularegistroalunos TO matricula_registro_alunos;
+RENAME TABLE professores TO professores;
+RENAME TABLE registropagamentosalunos TO registro_pagamento_alunos;
+RENAME TABLE registroscomportamentodisciplinaalunos TO registros_comportamento_disciplina_alunos;
