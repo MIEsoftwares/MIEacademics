@@ -95,4 +95,8 @@ INSERT INTO `professores` VALUES (1,'Carlos Souza','1980-03-10','Masculino','098
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
+
 -- Dump completed on 2024-03-31 22:26:17
+=======
+-- Dump completed on 2024-03-31 22:26:17
+
