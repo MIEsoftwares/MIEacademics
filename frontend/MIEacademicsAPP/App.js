@@ -6,7 +6,7 @@ import UserView from './screens/UserView';
 export default function App() {
   return (
     <View>
-      <UserView></UserView>
+      
     </View>
   );
 }
