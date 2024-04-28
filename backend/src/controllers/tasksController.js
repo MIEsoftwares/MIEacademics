@@ -1,12 +1,34 @@
 const tasksModel = require('../models/tasksModel');
 const bcrypt = require('bcrypt');
 
-const getAll = async (req, res,) => {
+const getAll = async (_, res,) => {
 //PEA = Professores e Alunos
     const todosPeA = await tasksModel.getAll();
 
     try{
         return res.status(200).json(todosPeA);
+    }catch(err){
+        return res.status(err).json(err);
+    }
+};
+
+const getAlunos = async (_, res) => {
+
+    const alunos = await tasksModel.getAlunos();
+
+    try{
+        return res.status(200).json(alunos);
+    }catch(err){
+        return res.status(err).json(err);
+    }
+};
+
+const getProfessores = async (_, res) => {
+
+    const professores = await tasksModel.getProfessores();
+
+    try{
+        return res.status(200).json(professores);
     }catch(err){
         return res.status(err).json(err);
     }
@@ -143,6 +165,8 @@ const deleteAluno = async (req, res) => {
 
 module.exports = {
     getAll,
+    getAlunos,
+    getProfessores,
     createProfessor,
     createAluno,
     updateProfessor,

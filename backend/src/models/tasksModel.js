@@ -10,6 +10,24 @@ const getAll = async () => {
     };
 };
 
+const getAlunos = async () => {
+
+    const query = 'SELECT * FROM alunos';
+
+    const [alunos] = await connection.execute(query);
+
+    return alunos;
+};
+
+const getProfessores = async () => {
+
+    const query = 'SELECT * FROM professores';
+
+    const [professores] = await connection.execute(query);
+
+    return professores;
+};
+
 const createProfessor = async (values, res) => {
 
     const query = 'INSERT INTO professores(nome_completo, data_nascimento, genero, CEP, numero_telefone, email, cpf, materia, coordenador, RA, senha) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)';
@@ -64,6 +82,8 @@ const deleteAluno = async (id) => {
 
 module.exports = {
     getAll,
+    getAlunos,
+    getProfessores,
     createProfessor,
     createAluno,
     updateProfessor,
