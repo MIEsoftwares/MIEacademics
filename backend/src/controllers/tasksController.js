@@ -1,11 +1,34 @@
-const tasksModel = require('../models/tasksModel')
+const tasksModel = require('../models/tasksModel');
+const bcrypt = require('bcrypt');
 
-const getAll = async (req, res,) => {
+const getAll = async (_, res,) => {
 //PEA = Professores e Alunos
     const todosPeA = await tasksModel.getAll();
 
     try{
         return res.status(200).json(todosPeA);
+    }catch(err){
+        return res.status(err).json(err);
+    }
+};
+
+const getAlunos = async (_, res) => {
+
+    const alunos = await tasksModel.getAlunos();
+
+    try{
+        return res.status(200).json(alunos);
+    }catch(err){
+        return res.status(err).json(err);
+    }
+};
+
+const getProfessores = async (_, res) => {
+
+    const professores = await tasksModel.getProfessores();
+
+    try{
+        return res.status(200).json(professores);
     }catch(err){
         return res.status(err).json(err);
     }
@@ -23,7 +46,7 @@ const createProfessor = async (req, res) => {
         req.body.materia,
         req.body.coordenador,
         req.body.RA,
-        req.body.senha,
+        (await bcrypt.hash(req.body.senha, 10)).toString(),
     ];
 
     const insertProfessor = await tasksModel.createProfessor(values);
@@ -51,7 +74,7 @@ const createAluno = async (req, res) => {
         req.body.nome_responsavel,
         req.body.turma_curso,
         req.body.RA,
-        req.body.senha,
+        (await bcrypt.hash(req.body.senha, 10)).toString(),
     ];
 
     const insertAluno = await tasksModel.createAluno(values);
@@ -77,7 +100,7 @@ const updateProfessor = async (req, res) => {
         req.body.materia,
         req.body.coordenador,
         req.body.RA,
-        req.body.senha,
+        (await bcrypt.hash(req.body.senha, 10)).toString(),
         req.body.id,        
     ];
 
@@ -106,7 +129,7 @@ const updateAluno = async (req, res) => {
         req.body.nome_responsavel,
         req.body.turma_curso,
         req.body.RA,
-        req.body.senha,
+        (await bcrypt.hash(req.body.senha, 10)).toString(),
         req.body.id,
     ];
 
@@ -142,6 +165,8 @@ const deleteAluno = async (req, res) => {
 
 module.exports = {
     getAll,
+    getAlunos,
+    getProfessores,
     createProfessor,
     createAluno,
     updateProfessor,
