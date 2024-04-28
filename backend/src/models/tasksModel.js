@@ -21,7 +21,7 @@ const createProfessor = async (values, res) => {
 
 const createAluno = async (values) => {
 
-    const query = 'INSERT INTO alunos(nome_completo, data_nascimento, genero, CEP, numero_telefone, email, cpf, curso, turma_medio, id_matricula, nome_responsavel, turma_curos, RA, senha) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)';
+    const query = 'INSERT INTO alunos(nome_completo, data_nascimento, genero, CEP, numero_telefone, email, cpf, curso, turma_medio, id_matricula, nome_responsavel, turma_curso, RA, senha) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)';
 
     const createdAluno = await connection.execute(query, [...values]);
     return createdAluno;

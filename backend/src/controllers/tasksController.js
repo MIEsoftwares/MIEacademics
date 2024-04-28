@@ -1,4 +1,5 @@
-const tasksModel = require('../models/tasksModel')
+const tasksModel = require('../models/tasksModel');
+const bcrypt = require('bcrypt');
 
 const getAll = async (req, res,) => {
 //PEA = Professores e Alunos
@@ -23,7 +24,7 @@ const createProfessor = async (req, res) => {
         req.body.materia,
         req.body.coordenador,
         req.body.RA,
-        req.body.senha,
+        (await bcrypt.hash(req.body.senha, 10)).toString(),
     ];
 
     const insertProfessor = await tasksModel.createProfessor(values);
@@ -51,7 +52,7 @@ const createAluno = async (req, res) => {
         req.body.nome_responsavel,
         req.body.turma_curso,
         req.body.RA,
-        req.body.senha,
+        (await bcrypt.hash(req.body.senha, 10)).toString(),
     ];
 
     const insertAluno = await tasksModel.createAluno(values);
@@ -77,7 +78,7 @@ const updateProfessor = async (req, res) => {
         req.body.materia,
         req.body.coordenador,
         req.body.RA,
-        req.body.senha,
+        (await bcrypt.hash(req.body.senha, 10)).toString(),
         req.body.id,        
     ];
 
@@ -106,7 +107,7 @@ const updateAluno = async (req, res) => {
         req.body.nome_responsavel,
         req.body.turma_curso,
         req.body.RA,
-        req.body.senha,
+        (await bcrypt.hash(req.body.senha, 10)).toString(),
         req.body.id,
     ];
 
